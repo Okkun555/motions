@@ -10,6 +10,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class='navbar navbar-fixed-top navbar-inverse'>
+      <div class='container'>
+        <%= link_to 'トレログ', root_path, id: 'logo' %>
+        <nav>
+          <ul class='nav nav-bar-nav navbar-right'>
+            <li><%= link_to 'ログイン', '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class='container'>
+      <%= yield %>
+    </div>
   </body>
 </html>

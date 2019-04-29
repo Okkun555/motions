@@ -5,7 +5,8 @@ RSpec.describe User, type: :model do
   let(:email){ 'a@example.com' }
   let(:password){ 'password' }
   let(:password_confirmation){ 'password' }
-  let(:user){ User.new(name: name, email: email, password: password, password_confirmation: password_confirmation) }
+  let(:profile){ 'Hello everyone' }
+  let(:user){ User.new(name: name, email: email, password: password, password_confirmation: password_confirmation, profile: profile) }
 
   let(:user_b){ User.new(name: 'userB', email: 'b@example.com', password: 'password', password_confirmation: 'password') }
 
@@ -18,7 +19,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'name validations' do
-    context 'precent name' do
+    context 'present name' do
       let(:name){ '' }
 
       it_behaves_like 'should be invalid'
@@ -86,6 +87,14 @@ RSpec.describe User, type: :model do
 
     context 'too short password' do
       let(:password){ 'a' * 5 }
+
+      it_behaves_like 'should be invalid'
+    end
+  end
+
+  describe 'profile validations' do
+    context 'too long profile' do
+      let(:profile){ 'a' * 401 }
 
       it_behaves_like 'should be invalid'
     end

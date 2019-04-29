@@ -3,6 +3,6 @@ FactoryBot.define do
     name { 'userA' }
     email { 'a@example.com' }
     password_digest { 'password' }
-    profile { "MyText" }
+    profile { 'Hello everyone' }
   end
 end

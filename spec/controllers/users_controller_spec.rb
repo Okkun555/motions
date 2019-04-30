@@ -29,4 +29,13 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  context '#show' do
+    before do
+      get :show, params: { id: user.id }
+    end
+    it 'should get user_show page' do
+      expect(response).to have_http_status(:success)
+    end
+  end
 end

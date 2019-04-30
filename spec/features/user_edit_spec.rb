@@ -13,7 +13,7 @@ RSpec.feature "UserEdits", type: :feature do
         it 'should update user' do
           fill_in 'user_name', with: 'userB'
           fill_in 'user_profile', with: 'Hello exeryone. My name is userB'
-          click_button 'ユーザー更新'
+          click_button 'プロフィール更新'
           expect(page).to have_content 'アカウントを更新しました。'
         end
       end
@@ -22,13 +22,16 @@ RSpec.feature "UserEdits", type: :feature do
         it 'should not update user' do
           fill_in 'user_name', with: 'userB'
           fill_in 'user_profile', with: 'a' * 401
-          click_button 'ユーザー更新'
+          click_button 'プロフィール更新'
           expect(page).to have_content 'Profile is too long (maximum is 400 characters)'
         end
       end
     end
 
     context '#destroy' do
+      before do
+        visit user_path(user)
+      end
       it 'should delete user' do
         expect { click_on 'ユーザー削除' }.to change { User.count }.by(-1)
       end

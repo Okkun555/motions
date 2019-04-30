@@ -9,6 +9,5 @@
   <div class='form-group'>
     <%= f.text_area :profile, placeholder: 'プロフィール', class: 'form-control', id: 'user_profile' %>
   </div>
-  <%= f.submit 'ユーザー更新', class: 'btn btn-success' %>
-  <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'btn btn-danger' %>
+  <%= f.submit 'プロフィール更新', class: 'btn btn-success' %>
 <% end %>

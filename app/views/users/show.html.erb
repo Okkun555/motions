@@ -1,2 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>ユーザーページ</h1>
+<div class='left-side'>
+  <%= @user.name %>
+  <%= @user.profile %>
+  <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'btn btn-success' %>
+  <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'btn btn-danger' %>
+</div>

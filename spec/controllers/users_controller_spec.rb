@@ -20,4 +20,13 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  context '#index' do
+    before do
+      get :index
+    end
+    it 'should get user_index page' do
+      expect(response).to have_http_status(:success)
+    end
+  end
 end

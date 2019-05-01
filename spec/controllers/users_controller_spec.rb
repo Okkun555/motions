@@ -38,4 +38,10 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  context '#setting' do
+    before do
+      get :setting, params: { id: user.id }
+    end
+  end
 end

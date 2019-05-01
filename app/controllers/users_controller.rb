@@ -48,12 +48,28 @@ class UsersController < ApplicationController
   end
 
   def setting
+    @user = User.find(params[:id])
   end
 
   def email_update
+    @user = User.find(params[:id])
+    if @user.update(user_email_update_params)
+      flash[:success] = 'メールアドレスを更新しました。'
+      redirect_to user_url(@user)
+    else
+      render 'setting'
+    end
   end
 
   def password_update
+    @user = User.find(params[:id])
+    if @user && @user.authenticate(params[:user][:old_password])
+      @user.update(user_password_update_params)
+      flash[:success] = 'パスワードを更新しました。'
+      redirect_to user_url(@user)
+    else
+      render 'setting'
+    end
   end
 
   private
@@ -63,5 +79,13 @@ class UsersController < ApplicationController
 
       def user_update_params
         params.require(:user).permit(:name, :profile)
+      end
+
+      def user_email_update_params
+        params.require(:user).permit(:email)
+      end
+
+      def user_password_update_params
+        params.require(:user).permit(:password, :password_confirmation)
       end
 end

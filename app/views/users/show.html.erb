@@ -2,6 +2,9 @@
 <div class='left-side'>
   <%= @user.name %>
   <%= @user.profile %>
-  <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'btn btn-success' %>
-  <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'btn btn-danger' %>
+  <%= link_to 'セキュリティ', setting_user_path(@user) %>
+  <div class='show-link'>
+    <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'btn btn-success' %>
+    <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'btn btn-danger' %>
+  </div>
 </div>

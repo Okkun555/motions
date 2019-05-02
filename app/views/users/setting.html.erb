@@ -1,5 +1,5 @@
 <p>メールアドレス変更</p>
-  <%= form_with model: @user, local: true do |f| %>
+  <%= form_with model: @user, url: email_update_user_path(@user), local: true do |f| %>
     <div class='form-group'>
       <%= f.email_field :email, class: 'form-control', id: 'user_email' %>
     </div>
@@ -7,15 +7,15 @@
   <% end %>
 
 <p>パスワード変更</p>
-  <%= form_with model: @user, local: true do |f| %>
+  <%= form_with model: @user, url: password_update_user_path(@user), local: true do |f| %>
     <div class='form-group'>
       <%= f.password_field :old_password, placeholder: '現在のパスワード', class: 'form-control', id: 'old_password' %>
     </div>
     <div class='form-group'>
-      <%= f.password_field :password, placeholder: '新規パスワード', class: 'form-control', id: 'user_password' %>
+      <%= f.password_field :password, placeholder: '新規パスワード', class: 'form-control', id: 'new_password' %>
     </div>
     <div class='form-group'>
-      <%= f.password_field :password_confirmation, placeholder: '新規パスワード(確認)', class: 'form-control', id: 'user_password_confirmation' %>
+      <%= f.password_field :password_confirmation, placeholder: '新規パスワード(確認)', class: 'form-control', id: 'new_password_confirmation' %>
     </div>
     <%= f.submit 'パスワード更新', class: 'btn btn-success' %>
   <% end %>

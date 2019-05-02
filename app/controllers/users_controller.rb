@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :login_require, except: [:new, :create]
 
   def index
     if params[:search]

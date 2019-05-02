@@ -5,6 +5,10 @@ RSpec.feature "UserEdits", type: :feature do
 
   describe 'user_edit_system' do
     before do
+      visit login_path
+      fill_in 'login_email', with: user.email
+      fill_in 'login_password', with: user.password
+      click_button 'ログイン'
       visit edit_user_path(user)
     end
 

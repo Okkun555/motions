@@ -14,6 +14,7 @@ RSpec.describe UsersController, type: :controller do
 
   context '#edit' do
     before do
+      log_in_as(user)
       get :edit, params: { id: user.id }
     end
     it 'should get user_edit page' do
@@ -23,6 +24,7 @@ RSpec.describe UsersController, type: :controller do
 
   context '#index' do
     before do
+      log_in_as(user)
       get :index
     end
     it 'should get user_index page' do
@@ -32,6 +34,7 @@ RSpec.describe UsersController, type: :controller do
 
   context '#show' do
     before do
+      log_in_as(user)
       get :show, params: { id: user.id }
     end
     it 'should get user_show page' do

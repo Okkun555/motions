@@ -1,4 +1,7 @@
-<p>メールアドレス変更</p>
+<% provide(:title, 'User Setting') %>
+
+<div id='users-setting'>
+  <h1>メールアドレス変更</h1>
   <%= form_with model: @user, url: email_update_user_path(@user), local: true do |f| %>
     <div class='form-group'>
       <%= f.email_field :email, class: 'form-control', id: 'user_email' %>
@@ -6,7 +9,7 @@
     <%= f.submit 'メールアドレス更新', class: 'btn btn-success' %>
   <% end %>
 
-<p>パスワード変更</p>
+  <h1>パスワード変更</h1>
   <%= form_with model: @user, url: password_update_user_path(@user), local: true do |f| %>
     <div class='form-group'>
       <%= f.password_field :old_password, placeholder: '現在のパスワード', class: 'form-control', id: 'old_password' %>
@@ -19,3 +22,4 @@
     </div>
     <%= f.submit 'パスワード更新', class: 'btn btn-success' %>
   <% end %>
+</div>

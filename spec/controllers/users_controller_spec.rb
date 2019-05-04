@@ -22,16 +22,6 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  context '#index' do
-    before do
-      log_in_as(user)
-      get :index
-    end
-    it 'should get user_index page' do
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   context '#show' do
     before do
       log_in_as(user)

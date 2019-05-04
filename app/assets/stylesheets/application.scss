@@ -1,7 +1,104 @@
 @import 'bootstrap';
 
-// headerのスタイル
-#logo {
-  font-size: 35px;
+// layout/application.html.erb
+header {
+  margin-bottom: 50px;
+}
+
+.navbar-brand {
+  margin: 2px 40px;
+  padding: 2px 20px;
+  font-size: 25px;
+  font-weight: bold;
+  border: 3px solid #66FF66;
+}
+
+.nav-item {
+  margin-right: 25px;
+}
+
+.nav-link {
   color: #000;
+}
+
+// 入力フォームに関するスタイル
+.form-group {
+  margin-top: 30px;
+}
+
+.btn {
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+
+// static_pages/home.html.erb
+#home {
+  margin: 50vh auto 0;
+	transform: translateY(-90%);
+  text-align: center;
+  h1 {
+    font-size: 60px;
+  }
+  p {
+    margin: 30px;
+    font-size: 25px;
+  }
+  .btn {
+    width: 200px;
+    margin: 0 10px;
+    padding: 10px;
+    font-size: 20px;
+  }
+}
+
+
+// users/new.html.erb
+#users-new {
+  text-align: center;
+  h1 {
+    font-size: 35px;
+  }
+}
+
+// users/edit.html.erb
+#users-edit {
+  text-align: center;
+  h1 {
+    font-size: 35px;
+  }
+}
+
+// users/show.html.erb
+#users-show h1 {
+  font-size: 35px;
+  text-align: center;
+}
+
+.show-left-side {
+  width: 40%;
+  transform: translateY(50%);
+  text-align: center;
+}
+
+.user-name, .user-profile, .show-setting {
+  margin: 20px;
+  font-size: 25px;
+}
+
+.show-setting {
+  display: block;
+  color: #000;
+}
+
+// users/setting.html.erb
+#users-setting {
+  text-align: center;
+  h1 {
+    font-size: 35px;
+  }
+  .btn {
+    margin: 20px 0 50px;
+  }
 }

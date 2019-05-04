@@ -14,7 +14,7 @@ RSpec.feature "UserCreates", type: :feature do
         fill_in 'user_email', with: 'user@example.com'
         fill_in 'user_password', with: 'password'
         fill_in 'password_confirmation', with: 'password'
-        expect { click_button '登録' }.to change { User.count }.by(1)
+        expect { click_button 'アカウント作成' }.to change { User.count }.by(1)
         expect(page).to have_content 'アカウントを作成しました。'
       end
     end
@@ -25,7 +25,7 @@ RSpec.feature "UserCreates", type: :feature do
         fill_in 'user_email', with: ''
         fill_in 'user_password', with: 'password'
         fill_in 'password_confirmation', with: 'password'
-        expect { click_button '登録'}.not_to change { User.count }
+        expect { click_button 'アカウント作成'}.not_to change { User.count }
         expect(page).to have_content "Name can't be blank"
         expect(page).to have_content "Email can't be blank"
       end

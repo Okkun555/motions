@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to:'static_pages#home'
   controller :users do
-    resources :users do
+    resources :users, except: [:index] do
       member do
         get :setting
         patch :email_update, :password_update

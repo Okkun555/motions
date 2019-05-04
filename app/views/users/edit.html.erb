@@ -1,13 +1,17 @@
-<h1>アカウント編集</h1>
+<% provide(:title, 'Edit' ) %>
 
-<%= form_with model: @user, local: true do |f| %>
-  <%= render 'shared/errors_messages' %>
+<div id='users-edit'>
+  <h1>Myページ編集</h1>
 
-  <div class='form-group'>
-    <%= f.text_field :name, placeholder: 'ユーザー名', class: 'form-control', id: 'user_name' %>
-  </div>
-  <div class='form-group'>
-    <%= f.text_area :profile, placeholder: 'プロフィール', class: 'form-control', id: 'user_profile' %>
-  </div>
-  <%= f.submit 'プロフィール更新', class: 'btn btn-success' %>
-<% end %>
+  <%= form_with model: @user, local: true do |f| %>
+    <%= render 'shared/errors_messages' %>
+
+    <div class='form-group'>
+      <%= f.text_field :name, placeholder: 'ユーザー名', class: 'form-control form-control-lg', id: 'user_name' %>
+    </div>
+    <div class='form-group'>
+      <%= f.text_area :profile, placeholder: 'プロフィール', class: 'form-control form-control-lg', id: 'user_profile' %>
+    </div>
+    <%= f.submit 'プロフィール更新', class: 'btn btn-success' %>
+  <% end %>
+</div>

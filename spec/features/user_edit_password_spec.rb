@@ -36,7 +36,6 @@ RSpec.feature "UserEditPasswords", type: :feature do
 
       context 'new password is invalid' do
         it 'should not edit user password' do
-          pending
           fill_in 'old_password', with: 'password'
           fill_in 'new_password', with: 'a'
           fill_in 'new_password_confirmation', with: 'a'

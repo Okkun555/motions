@@ -1,14 +1,6 @@
 class UsersController < ApplicationController
   before_action :login_require, except: [:new, :create]
 
-  def index
-    if params[:search]
-      @users = User.search_users(params[:search])
-    else
-      @users = User.all
-    end
-  end
-
   def show
     @user = User.find(params[:id])
   end
@@ -20,6 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_create_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = 'アカウントを作成しました。'
       redirect_to user_url(@user)
     else
@@ -65,9 +58,12 @@ class UsersController < ApplicationController
   def password_update
     @user = User.find(params[:id])
     if @user && @user.authenticate(params[:user][:old_password])
-      @user.update(user_password_update_params)
-      flash[:success] = 'パスワードを更新しました。'
-      redirect_to user_url(@user)
+      if @user.update(user_password_update_params)
+        flash[:success] = 'パスワードを更新しました。'
+        redirect_to user_url(@user)
+      else
+        render 'setting'
+      end
     else
       render 'setting'
     end

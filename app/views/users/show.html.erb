@@ -1,10 +1,17 @@
-<h1>ユーザーページ</h1>
-<div class='left-side'>
-  <%= @user.name %>
-  <%= @user.profile %>
-  <%= link_to 'セキュリティ', setting_user_path(@user) %>
-  <div class='show-link'>
-    <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'btn btn-success' %>
-    <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'btn btn-danger' %>
+<% provide(:title, 'User Page') %>
+
+<div id='users-show'>
+  <h1>マイページ(<%= @user.name %>)</h1>
+
+  <div class='show-content'>
+    <div class='show-left-side'>
+      <p class='user-name'><%= @user.name %></p>
+      <p class='user-profile'><%= @user.profile %></p>
+      <%= link_to '設定', setting_user_path(@user), class: 'show-setting' %>
+      <div class='show-link'>
+        <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'show-setting' %>
+        <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'show-setting' %>
+      </div>
+    </div>
   </div>
 </div>

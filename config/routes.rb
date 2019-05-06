@@ -14,4 +14,8 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'
   end
+
+  controller :logs do
+    resources :logs, except: [:destroy]
+  end
 end

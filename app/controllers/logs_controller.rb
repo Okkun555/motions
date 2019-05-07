@@ -5,6 +5,7 @@ class LogsController < ApplicationController
   end
 
   def show
+    @log = current_user.logs.find(params[:id])
   end
 
   def new

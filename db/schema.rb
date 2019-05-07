@@ -13,10 +13,9 @@
 ActiveRecord::Schema.define(version: 2019_05_06_073930) do
 
   create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "today", null: false
-    t.text "training", null: false
+    t.date "training_day", null: false
+    t.text "training_menu", null: false
     t.string "memo"
-    t.float "weight"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

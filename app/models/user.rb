@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :profile, length: { maximum: 400 }
+
+  has_many :logs
 end

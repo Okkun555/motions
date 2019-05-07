@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   root to:'static_pages#home'
+
+  controller :sessions do
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+  end
+
   controller :users do
     resources :users, except: [:index] do
       member do
@@ -9,13 +16,5 @@ Rails.application.routes.draw do
     end
   end
 
-  controller :sessions do
-    get '/login', to: 'sessions#new'
-    post '/login', to: 'sessions#create'
-    delete 'logout', to: 'sessions#destroy'
-  end
-
-  controller :logs do
-    resources :logs, except: [:destroy]
-  end
+  resources :logs, except: [:destroy]
 end

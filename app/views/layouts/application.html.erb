@@ -16,7 +16,7 @@
         <ul class='nav nav-tab'>
           <% if current_user %>
             <li class='nav-item'>
-              <%= link_to '新規ログ', '#', class: 'nav-link' %>
+              <%= link_to '新規ログ', new_log_path, class: 'nav-link' %>
             </li>
             <li class='nav-item'>
               <%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %>

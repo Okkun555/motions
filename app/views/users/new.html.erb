@@ -4,7 +4,7 @@
   <h1>アカウント作成</h1>
 
   <%= form_with model: @user, local: true do |f| %>
-    <%= render 'shared/errors_messages' %>
+    <%= render 'shared/errors_messages', object: f.object %>
     <div class='form-group'>
       <%= f.text_field :name, placeholder: 'ユーザー名', class: 'form-control form-control-lg', id: 'user_name' %>
     </div>

@@ -23,4 +23,14 @@ RSpec.describe LogsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  context '#edit' do
+    before do
+      log_in_as(user)
+      get :edit, params: { id: log.id }
+    end
+    it 'should get logs_edit page' do
+      expect(response).to have_http_status(:success)
+    end
+  end
 end

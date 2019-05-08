@@ -7,10 +7,12 @@
     <div class='show-left-side'>
       <p class='user-name'><%= @user.name %></p>
       <p class='user-profile'><%= @user.profile %></p>
-      <%= link_to '設定', setting_user_path(@user), class: 'show-setting' %>
-      <div class='show-link'>
-        <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'show-setting' %>
-        <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'show-setting' %>
+      <% if @user == current_user %>
+        <%= link_to '設定', setting_user_path(@user), class: 'show-setting' %>
+        <div class='show-link'>
+          <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'show-setting' %>
+          <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'show-setting' %>
+        <% end %>
       </div>
     </div>
   </div>

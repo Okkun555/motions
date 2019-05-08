@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :login_require, except: [:new, :create]
+  before_action :correct_user, only: [:edit, :update, :destroy, :setting, :update_email, :update_password]
 
   def show
     @user = User.find(params[:id])

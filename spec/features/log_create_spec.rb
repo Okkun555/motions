@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature "LogCreates", type: :feature do
-  describe 'create logs' do
-    let(:user){ FactoryBot.create(:user) }
+  let(:user){ FactoryBot.create(:user) }
 
+  describe 'create_log_system' do
     before do
       visit login_path
       fill_in 'login_email', with: user.email
@@ -19,7 +19,7 @@ RSpec.feature "LogCreates", type: :feature do
         fill_in 'memo', with: 'test'
         expect{ click_button '投稿' }.to change { Log.count }.by(1)
         expect(page).to have_content '投稿しました。'
-        expect(current_path).to eq logs_path(user)
+        expect(current_path).to eq user_path(user)
       end
     end
 

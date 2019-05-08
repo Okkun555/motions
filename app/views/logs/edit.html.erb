@@ -1,2 +1,19 @@
-<h1>Logs#edit</h1>
-<p>Find me in app/views/logs/edit.html.erb</p>
+<% provide(:title, 'Edit Log') %>
+
+<div id='logs-edit'>
+  <h1>トレーニング記録の編集</h1>
+
+  <%= form_with model: @log, local: true do |f| %>
+    <%= render 'shared/errors_messages', object: f.object  %>
+    <div class='form-group'>
+      <%= f.date_field :training_day, id: 'training_day' %>
+    </div>
+    <div class='form-group'>
+      <%= f.text_area :training_menu, placeholder: 'トレーニング内容', class: 'form-control', id: 'training_menu' %>
+    </div>
+    <div class='form-group'>
+      <%= f.text_field :memo, placeholder: '備考', class: 'form-control', id: 'memo' %>
+    </div>
+    <%= f.submit '更新', class: 'btn btn-success' %>
+  <% end %>
+</div>

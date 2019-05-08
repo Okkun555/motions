@@ -10,7 +10,9 @@
       <p class="card-text">
         <%= @log.memo %>
       </p>
-      <%= link_to '編集', edit_log_path(@log), class: 'btn btn-success' %>
+      <% if @user == current_user %>
+        <%= link_to '編集', edit_log_path(@log), class: 'btn btn-success' %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -7,4 +7,12 @@ module SessionsHelper
   def login_require
     redirect_to login_path unless current_user
   end
+
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      flash[:danger] = '更新権限がありません'
+      redirect_to root_path
+    end 
+  end
 end

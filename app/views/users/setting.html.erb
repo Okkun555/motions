@@ -1,25 +1,29 @@
 <% provide(:title, 'User Setting') %>
 
 <div id='users-setting'>
-  <h1>メールアドレス変更</h1>
+  <h1>- メールアドレス変更 -</h1>
   <%= form_with model: @user, url: email_update_user_path(@user), local: true do |f| %>
     <div class='form-group'>
+      <%= f.label :email, '新しいメールアドレス:', class: 'form-label' %>
       <%= f.email_field :email, class: 'form-control', id: 'user_email' %>
     </div>
-    <%= f.submit 'メールアドレス更新', class: 'btn btn-success' %>
+    <%= f.submit 'メールアドレス更新', class: 'btn btn-dark' %>
   <% end %>
 
-  <h1>パスワード変更</h1>
+  <h1>- パスワード変更 -</h1>
   <%= form_with model: @user, url: password_update_user_path(@user), local: true do |f| %>
     <div class='form-group'>
-      <%= f.password_field :old_password, placeholder: '現在のパスワード', class: 'form-control', id: 'old_password' %>
+      <%= f.label :old_password, '現在のパスワード:', class: 'form-label' %>
+      <%= f.password_field :old_password, class: 'form-control', id: 'old_password' %>
     </div>
     <div class='form-group'>
-      <%= f.password_field :password, placeholder: '新規パスワード', class: 'form-control', id: 'new_password' %>
+      <%= f.label :new_password, '新しいパスワード:', class: 'form-label' %>
+      <%= f.password_field :password, class: 'form-control', id: 'new_password' %>
     </div>
     <div class='form-group'>
-      <%= f.password_field :password_confirmation, placeholder: '新規パスワード(確認)', class: 'form-control', id: 'new_password_confirmation' %>
+      <%= f.label :password_confirmation, '新しいパスワード(確認):', class: 'form-label' %>
+      <%= f.password_field :password_confirmation, class: 'form-control', id: 'new_password_confirmation' %>
     </div>
-    <%= f.submit 'パスワード更新', class: 'btn btn-success' %>
+    <%= f.submit 'パスワード更新', class: 'btn btn-dark' %>
   <% end %>
 </div>

@@ -1,10 +1,11 @@
 <% provide(:title, 'User Page') %>
 
 <div id='users-show'>
-  <h1>マイページ(<%= @user.name %>)</h1>
+  <h1>- [ <%= @user.name %> ] -</h1>
 
   <div class='show-content'>
     <div class='show-left-side'>
+      <div class='profile-img'><%= image_tag @user.image if @user.image.attached? %></div>
       <p class='user-name'><%= @user.name %></p>
       <p class='user-profile'><%= @user.profile %></p>
       <% if @user == current_user %>
@@ -19,7 +20,7 @@
 
   <div class='show-right-side'>
     <table class="table">
-      <thead class="thead-dark">
+      <thead>
         <tr>
           <th>トレーニング日</th>
           <th>トレーニング内容</th>

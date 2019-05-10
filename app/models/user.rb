@@ -12,4 +12,6 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 400 }
 
   has_many :logs
+  has_one_attached :image
+
 end

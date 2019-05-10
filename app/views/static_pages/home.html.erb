@@ -1,8 +1,10 @@
-<div class='static-pages-home', id='home'>
+<div id='home'>
   <h1>Today is the first day of the rest of your life.</h1>
   <p>今すぐMotionsを始めよう。</p>
   <div class='buttons-area'>
-    <%= link_to 'アカウント作成', new_user_path, class: 'btn btn-success' %>
-    <%= link_to 'ログイン', login_path, class: 'btn btn-success' %>
+    <% unless current_user %>
+      <%= link_to 'アカウント作成', new_user_path, class: 'btn' %>
+      <%= link_to 'ログイン', login_path, class: 'btn' %>
+    <% end %>
   <div>
 </div>

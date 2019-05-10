@@ -9,9 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class='<%= controller.action_name %>'>
     <header>
-      <nav class='navbar sticky-top navbar-light'>
+      <nav class='navbar sticky-top navbar-dark'>
         <%= link_to 'Motions', root_path, class: 'navbar-brand' %>
         <ul class='nav nav-tab'>
           <% if current_user %>
@@ -22,7 +22,7 @@
               <%= link_to 'マイページ', user_path(current_user), class: 'nav-link' %>
             </li>
             <li class='nav-item'>
-              <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
+              <%= link_to 'ログアウト', logout_path, method: :delete, data: { confirm: "ログアウトします。よろしいですか？" }, class: 'nav-link' %>
             </li>
           <% else %>
             <li class='nav-item'>

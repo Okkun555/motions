@@ -1,19 +1,22 @@
 <% provide(:title, 'Create Log') %>
 
 <div id='logs-new'>
-  <h1>トレーニング記録</h1>
+  <h1>- トレーニング ログ作成 -</h1>
 
   <%= form_with model: @log, local: true do |f| %>
     <%= render 'shared/errors_messages', object: f.object  %>
     <div class='form-group'>
+      <%= f.label :training_day, '日付:', class: 'form-label' %>
       <%= f.date_field :training_day, id: 'training_day' %>
     </div>
     <div class='form-group'>
-      <%= f.text_area :training_menu, placeholder: 'トレーニング内容', class: 'form-control', id: 'training_menu' %>
+      <%= f.label :training_menu, 'トレーニング内容:', class: 'form-label' %>
+      <%= f.text_area :training_menu, class: 'form-control', id: 'training_menu' %>
     </div>
     <div class='form-group'>
-      <%= f.text_field :memo, placeholder: '備考', class: 'form-control', id: 'memo' %>
+      <%= f.label :memo, 'メモ:', class: 'form-label' %>
+      <%= f.text_field :memo, class: 'form-control', id: 'memo' %>
     </div>
-    <%= f.submit '投稿', class: 'btn btn-success' %>
+    <%= f.submit '投稿', class: 'btn btn-dark' %>
   <% end %>
 </div>

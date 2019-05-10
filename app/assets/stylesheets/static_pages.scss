@@ -1,3 +1,31 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// static_pages/home.html.erb
+.home {
+  width: 100%;
+  height: 100%;
+  background: image-url("motions_top.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.home header {
+  background-color: black;
+}
+
+#home {
+  margin: 50vh auto 0;
+	transform: translateY(-80%);
+  h1 {
+    font-size: 60px;
+  }
+  p {
+    margin: 30px;
+    font-size: 25px;
+  }
+  .btn {
+    margin: 0 10px;
+  }
+}

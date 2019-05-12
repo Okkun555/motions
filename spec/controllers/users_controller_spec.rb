@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   let(:user){ FactoryBot.create(:user) }
+  let(:log){ FactoryBot.create(:log, user: user) }
+  
 
   context '#new' do
     before do

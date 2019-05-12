@@ -1,14 +1,14 @@
 <% provide(:title, 'Show Log') %>
 
 <div id='logs-show'>
-  <h1>トレーニング詳細</h1>
+  <h1>- トレーニング詳細 -</h1>
 
   <div class="card">
     <div class="card-body">
       <h4 class="card-title"><%= @log.training_day %></h4>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @log.training_menu %></h6>
       <p class="card-text">
-        <%= @log.memo %>
+        <%= @log.comment %>
+        <%= @user.name %>
       </p>
       <% if @user == current_user %>
         <%= link_to '編集', edit_log_path(@log), class: 'btn btn-success' %>

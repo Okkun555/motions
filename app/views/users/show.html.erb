@@ -19,21 +19,16 @@
   </div>
 
   <div class='show-right-side'>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>トレーニング日</th>
-          <th>トレーニング内容</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @logs.each do |log| %>
-          <tr>
-            <td><%= link_to log.training_day, log_path(log) %></td>
-            <td><%= link_to log.training_menu, log_path(log) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <p>- トレーニング履歴 -</p>
+    <% @logs.each do |log| %>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><%= log.training_day %></h4>
+            <p class="card-text"> <%= log.training_title %></p>
+            <%= link_to '詳細', log_path, class: 'btn' %>
+          </div>
+        </div>
+
+    <% end %>
   </div>
 </div>

@@ -15,8 +15,9 @@ RSpec.feature "LogCreates", type: :feature do
     context 'valid data' do
       it 'should create new log' do
         fill_in 'training_day', with: '2019/05/01'
-        fill_in 'training_menu', with: 'ベンチプレス'
-        fill_in 'memo', with: 'test'
+        fill_in 'training_title', with: '胸・肩'
+        fill_in 'training_event', with: 'ベンチプレス'
+        fill_in 'comment', with: 'test'
         expect{ click_button '投稿' }.to change { Log.count }.by(1)
         expect(page).to have_content '投稿しました。'
         expect(current_path).to eq user_path(user)
@@ -26,11 +27,10 @@ RSpec.feature "LogCreates", type: :feature do
     context 'invalid data' do
       it 'should not create new log' do
         fill_in 'training_day', with: ''
-        fill_in 'training_menu', with: ''
-        fill_in 'memo', with: ''
+        fill_in 'training_title', with: ''
+        fill_in 'comment', with: ''
         expect{ click_button '投稿' }.not_to change { Log.count }
         expect(page).to have_content "Training day can't be blank"
-        expect(page).to have_content "Training menu can't be blank"
       end
     end
   end

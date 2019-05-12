@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_10_004946) do
+ActiveRecord::Schema.define(version: 2019_05_10_153541) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,9 +35,20 @@ ActiveRecord::Schema.define(version: 2019_05_10_004946) do
 
   create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "training_day", null: false
-    t.text "training_menu", null: false
-    t.string "memo"
+    t.text "training_title", null: false
+    t.text "comment"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "training_event", null: false
+    t.integer "training_weight"
+    t.integer "reps"
+    t.integer "training_time"
+    t.integer "distance"
+    t.integer "log_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

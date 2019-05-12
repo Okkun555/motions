@@ -12,6 +12,7 @@ class LogsController < ApplicationController
 
   def new
     @log = Log.new
+    @log.menus.build
   end
 
   def create
@@ -40,7 +41,7 @@ class LogsController < ApplicationController
 
   private
       def logs_params
-        params.require(:log).permit(:training_day, :training_menu, :memo)
+        params.require(:log).permit(:training_day, :training_title, :comment, menus_attributes: [:training_event, :training_weight, :reps, :training_time, :distance, :log_id, :destroy])
       end
 
       def correct_user_logs

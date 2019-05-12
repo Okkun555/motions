@@ -4,9 +4,9 @@ RSpec.describe Log, type: :model do
   let(:user){ FactoryBot.create(:user) }
 
   let(:training_day){ '2019/05/01' }
-  let(:training_menu){ 'ベンチプレス' }
-  let(:memo){ 'test' }
-  let(:log){ user.logs.new(training_day: training_day, training_menu: training_menu, memo: memo) }
+  let(:training_title){ '胸・背中' }
+  let(:comment){ 'test' }
+  let(:log){ user.logs.new(training_day: training_day, training_title: training_title, comment: comment) }
 
   shared_examples_for 'should be invalid' do
     it { expect(log).to be_invalid }
@@ -24,17 +24,23 @@ RSpec.describe Log, type: :model do
     end
   end
 
-  describe 'training_menu validation' do
-    context 'present training_menu' do
-      let(:training_menu){ '' }
+  describe 'training_title validatio' do
+    context 'present training_title' do
+      let(:training_title){ '' }
 
       it_behaves_like 'should be invalid'
     end
+
+    context 'too long training_title' do
+      let(:training_title){ 'a' * 21 }
+
+      it_behaves_like 'should be invalid' 
+    end
   end
 
-  describe 'memo validation' do
-    context 'too long memo' do
-      let(:memo){ 'a' * 101 }
+  describe 'comment validation' do
+    context 'too long comment' do
+      let(:comment){ 'a' * 401 }
 
       it_behaves_like 'should be invalid'
     end

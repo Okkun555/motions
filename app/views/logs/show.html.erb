@@ -4,12 +4,35 @@
   <h1>- トレーニング詳細 -</h1>
 
   <div class="card">
+    <div class="card-header"><%= @log.training_day %></div>
     <div class="card-body">
-      <h4 class="card-title"><%= @log.training_day %></h4>
-      <p class="card-text">
-        <%= @log.comment %>
-        <%= @user.name %>
-      </p>
+      <h4 class="card-title"><%= @log.training_title %></h4>
+
+        <p class="card-text">
+          <table class='table table-bordered table-sm'>
+            <thead>
+            <tr>
+              <th>種目</th>
+              <th>重量(kg)</th>
+              <th>回数(reps)</th>
+              <th>最大重量(1RM)</th>
+            </tr>
+          </thead>
+          <% @menus.each do |menu| %>
+          <tbody>
+            <td><%= menu.training_event %></td>
+            <td><%= menu.training_weight %></td>
+            <td><%= menu.reps %></td>
+            <td>
+              <%= menu.calculate_1rm %>
+            </td>
+          </tbody>
+          <% end %>
+        </table>
+        </p>
+
+      <p class="card-text"><%= @log.comment %></p>
+      <p><%= @user.name %></p>
       <% if @user == current_user %>
         <%= link_to '編集', edit_log_path(@log), class: 'btn btn-success' %>
       <% end %>

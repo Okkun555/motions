@@ -66,6 +66,10 @@ header {
   font-weight: bold;
 }
 
+.user-profile {
+  text-align: left;
+}
+
 .user-name, .user-profile {
   border-bottom: 1px solid #c0c0c0;
   padding-bottom: 40px;
@@ -73,7 +77,7 @@ header {
 
 .user-name, .user-profile, .show-setting {
   margin-bottom: 15px;
-  width: 70%;
+  width: 80%;
 }
 
 .show-setting {

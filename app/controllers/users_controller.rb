@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.avatar.attach(params[:user][:avatar])
     if @user.update(user_update_params)
       flash[:success] = 'アカウントを更新しました。'
       redirect_to user_url(@user)
@@ -77,7 +78,7 @@ class UsersController < ApplicationController
       end
 
       def user_update_params
-        params.require(:user).permit(:image, :name, :profile)
+        params.require(:user).permit(:avatar, :name, :profile)
       end
 
       def user_email_update_params

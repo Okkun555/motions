@@ -7,6 +7,7 @@ class LogsController < ApplicationController
 
   def show
     @log = Log.find(params[:id])
+    @menus = @log.menus
     @user = @log.user
   end
 

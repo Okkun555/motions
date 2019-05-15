@@ -24,7 +24,7 @@ RSpec.feature "LogEdits", type: :feature do
         fill_in 'training_day', with: '2019/05/02'
         fill_in 'training_event', with: 'ベンチプレス'
         fill_in 'comment', with: 'memo'
-        click_button '更新'
+        click_button '投稿'
         expect(page).to have_content '更新しました。'
       end
     end
@@ -33,7 +33,7 @@ RSpec.feature "LogEdits", type: :feature do
       it 'should not edit log' do
         fill_in 'training_day', with: ''
         fill_in 'comment', with: ''
-        click_button '更新'
+        click_button '投稿'
         expect(page).not_to have_content '更新しました。'
       end
     end

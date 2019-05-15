@@ -1,0 +1,35 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているの削除できません"
+          has_meny: "%{record}が存在しているので削除できません"
+
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        id: ID
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        profile: プロフィール
+        created_at: 登録日時
+        update_at: 更新日時
+
+      log:
+        training_day: トレーニング日
+        training_title: トレーニング名
+        comment:   コメント
+
+      menus:
+        training_event: 種目
+        training_weight: 重量
+        reps: 回数
+        training_time: 時間
+        distance: 距離
+        created_at: 登録日時
+        update_at: 更新日時

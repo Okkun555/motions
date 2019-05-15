@@ -27,7 +27,7 @@ RSpec.feature "UserEdits", type: :feature do
           fill_in 'user_name', with: 'userB'
           fill_in 'user_profile', with: 'a' * 401
           click_button 'プロフィール更新'
-          expect(page).to have_content 'Profile is too long (maximum is 400 characters)'
+          expect(page).to have_content 'プロフィールは400文字以内で入力してください'
         end
       end
     end

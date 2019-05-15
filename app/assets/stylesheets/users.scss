@@ -2,18 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// forms
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
+// users/show.html.erb
+
+.show-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .left-side {
+    width: 30%;
+    .user-img, .user-name, .user-profile {
+      border-bottom: 1px solid #c0c0c0;
+      padding-bottom: 20px;
+      margin-bottom: 18px;
+    }
+    .user-name {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .user-profile {
+      text-align: left;
+      font-size: 15px;
+    }
+    .show-link {
+      margin-top: 20px;
+    }
+    .show-setting {
+      display: block;
+      border: 1px solid #000;
+      border-radius: 20px;
+      padding: 5px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+    .show-setting:hover {
+      text-decoration: none;
+      background: #000;
+      color: #fff;
+    }
+  }
+  .right-side {
+    width: 60%;
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
   }
 }
 
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
+// users/setting.html.erb
+#users-setting .btn {
+  margin-bottom: 50px;
 }

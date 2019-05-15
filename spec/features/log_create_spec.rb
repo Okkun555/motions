@@ -30,7 +30,8 @@ RSpec.feature "LogCreates", type: :feature do
         fill_in 'training_title', with: ''
         fill_in 'comment', with: ''
         expect{ click_button '投稿' }.not_to change { Log.count }
-        expect(page).to have_content "Training day can't be blank"
+        expect(page).to have_content 'トレーニング日を入力してください'
+        expect(page).to have_content 'トレーニング名を入力してください'
       end
     end
   end

@@ -13,5 +13,4 @@ class User < ApplicationRecord
 
   has_many :logs
   has_one_attached :avatar
-
 end

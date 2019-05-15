@@ -1,34 +1,31 @@
 <% provide(:title, 'User Page') %>
-
 <div id='users-show'>
-  <h1>- [ <%= @user.name %> ] -</h1>
-
-  <div class='show-content'>
-    <div class='show-left-side'>
-      <div class='profile-img img-thumbnail'><%= image_tag @user.avatar.variant(resize: "150x150") if @user.avatar.attached? %></div>
-      <p class='user-name'><%= @user.name %></p>
-      <p class='user-profile'><%= @user.profile %></p>
-      <% if @user == current_user %>
-        <%= link_to '設定', setting_user_path(@user), class: 'show-setting' %>
-        <div class='show-link'>
-          <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'show-setting' %>
-          <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'show-setting' %>
-        <% end %>
-      </div>
+<h1>- [ <%= @user.name %> ] -</h1>
+<div class='show-content'>
+  <div class='left-side'>
+    <div class='user-img'>
+      <%= image_tag @user.avatar.variant(resize: '200x200'), style: 'border-radius: 50%' if @user.avatar.attached? %>
     </div>
+    <p class='user-name'><%= @user.name %></p>
+    <p class='user-profile'><%= @user.profile %></p>
+    <% if @user == current_user %>
+      <div class='show-link'>
+          <%= link_to '設定', setting_user_path(@user), class: 'show-setting' %>
+        <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'show-setting' %>
+        <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'show-setting' %>
+      </div>
+    <% end %>
   </div>
-
-  <div class='show-right-side'>
-    <p>- トレーニング履歴 -</p>
+  <div class='right-side'>
+    <p class='title'>- トレーニング履歴 -</p>
     <% @logs.each do |log| %>
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title"><%= log.training_day %></h4>
-            <p class="card-text"> <%= log.training_title %></p>
-            <%= link_to '詳細', log_path(log), class: 'btn' %>
-          </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"><%= log.training_day %></h4>
+          <p class="card-text"> <%= log.training_title %></p>
+          <%= link_to '詳細', log_path(log), class: 'btn' %>
         </div>
-
+      </div>
     <% end %>
   </div>
 </div>

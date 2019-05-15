@@ -1,8 +1,14 @@
-<div class='form-group'>
-  <%= f.text_field :training_event, placeholder: '種目', id: 'training_event' %>
-  　×　
-  <%= f.text_field :training_weight, placeholder: '重量', id: 'training_weight' %>
-  kg ×
-  <%= f.number_field :reps, min: 1, placeholder: '回数', id: 'reps' %>
-  reps
+<div class='training-form nested-fields'>
+  <div>
+    <%= f.text_field :training_event, placeholder: '種目', id: 'training_event' %>
+  </div>
+  <p>×</p>
+  <div>
+    <%= f.text_field :training_weight, placeholder: '重量', id: 'training_weight' %>kg
+  </div>
+  <p>×</p>
+  <div>
+    <%= f.number_field :reps, min: 1, placeholder: '回数', id: 'reps' %>reps
+  </div>
+  <%= link_to_remove_association '削除', f, class: 'delet-key' %>
 </div>

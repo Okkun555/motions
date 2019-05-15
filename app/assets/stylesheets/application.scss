@@ -1,5 +1,7 @@
 @import 'bootstrap';
 @import 'static_pages';
+@import 'users';
+@import 'sessions';
 @import 'logs';
 
 // layout/application.html.erb
@@ -28,6 +30,7 @@ header {
   h1 {
     text-align: center;
     font-size: 35px;
+    margin-bottom: 30px;
   }
   .btn {
     background: #000;
@@ -53,47 +56,11 @@ header {
   margin-top: 20px;
 }
 
-
-// users/show.html.erb
-
-.show-left-side {
-  float: left;
-  width: 40%;
-}
-
-.user-name {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.user-profile {
-  text-align: left;
-}
-
-.user-name, .user-profile {
-  border-bottom: 1px solid #c0c0c0;
-  padding-bottom: 40px;
-}
-
-.user-name, .user-profile, .show-setting {
-  margin-bottom: 15px;
-  width: 80%;
-}
-
-.show-setting {
-  display: block;
-  color: #000;
-}
-
-.show-right-side {
-  float: right;
-  width: 60%;
-  transform: translateY(20%);
-  text-align: center;
-}
-
-// users/setting.html.erb
-#users-setting
-.btn {
-  margin-bottom: 40px;
+#error_explanation {
+  color: red;
+  ul {
+    text-align: left;
+    color: red;
+    margin: 0 0 20px 0;
+  }
 }

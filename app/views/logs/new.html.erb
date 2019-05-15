@@ -2,30 +2,5 @@
 
 <div id='logs-new'>
   <h1>- トレーニング ログ作成 -</h1>
-
-  <%= form_with model: @log, local: true do |f| %>
-    <%= render 'shared/errors_messages', object: f.object  %>
-    <div class='form-group'>
-      <%= f.label :training_day, '日付:', class: 'form-label' %>
-      <%= f.date_field :training_day, value: Time.now.strftime("%Y-%m-%d"), id: 'training_day' %>
-    </div>
-    <div class='form-group'>
-      <%= f.label :training_title, 'タイトル:', class: 'form-label' %>
-      <%= f.text_field :training_title, id: 'training_title' %>
-    </div>
-    <div class='training-menu'>
-      トレーニング内容:
-      <%= f.fields_for :menus do |m| %>
-        <%= render 'menu_fields', f: m  %>
-      <% end %>
-      <div id="links">
-        <%= link_to_add_association '追加',f, :menus, class: 'btn' %>
-      </div>
-    </div>
-    <div class='form-group'>
-      <%= f.label :comment, 'コメント:', class: 'form-label' %>
-      <%= f.text_field :comment, class: 'form-control', id: 'comment' %>
-    </div>
-    <%= f.submit '投稿', class: 'btn btn-dark' %>
-  <% end %>
+  <%= render 'shared/logs_form' %>
 </div>

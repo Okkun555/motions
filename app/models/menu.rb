@@ -3,6 +3,6 @@ class Menu < ApplicationRecord
   belongs_to :log, inverse_of: :menus
 
   def calculate_1rm
-    rm = training_weight * (1 + reps / 40.to_f)#なぜto_fが必要なのか？
+    rm = training_weight * (1 + reps / 40.to_f)
   end
 end

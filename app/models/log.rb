@@ -5,5 +5,5 @@ class Log < ApplicationRecord
 
   belongs_to :user
   has_many :menus, inverse_of: :log
-  accepts_nested_attributes_for :menus
+  accepts_nested_attributes_for :menus, reject_if: :all_blank, allow_destroy: true
 end

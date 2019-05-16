@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @logs = @user.logs
+    @logs = @user.logs.page(params[:page]).per(5)
   end
 
   def new

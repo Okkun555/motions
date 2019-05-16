@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 2019_05_10_153541) do
     t.string "training_event", null: false
     t.integer "training_weight"
     t.integer "reps"
-    t.integer "training_time"
-    t.integer "distance"
     t.integer "log_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

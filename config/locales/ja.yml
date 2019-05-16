@@ -29,7 +29,5 @@ ja:
         training_event: 種目
         training_weight: 重量
         reps: 回数
-        training_time: 時間
-        distance: 距離
         created_at: 登録日時
         update_at: 更新日時

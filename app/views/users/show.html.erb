@@ -4,7 +4,7 @@
 <div class='show-content'>
   <div class='left-side'>
     <div class='user-img'>
-      <%= image_tag @user.avatar.variant(resize: '200x200'), style: 'border-radius: 50%' if @user.avatar.attached? %>
+      <%= image_tag @user.avatar if @user.avatar.attached? %>
     </div>
     <p class='user-name'><%= @user.name %></p>
     <p class='user-profile'><%= @user.profile %></p>

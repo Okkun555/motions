@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2019_05_10_153541) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.text "profile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

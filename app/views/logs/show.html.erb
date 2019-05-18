@@ -21,7 +21,7 @@
               <td><%= menu.training_event %></td>
               <td><%= menu.training_weight %></td>
               <td><%= menu.reps %></td>
-              <td><%= menu.calculate_1rm %></td>
+              <td><%= menu.calculate_1rm if menu.training_weight && menu.reps %></td>
             </tbody>
           <% end %>
         </table>

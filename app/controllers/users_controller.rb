@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :login_require, except: [:new, :create]
   before_action :correct_user, only: [:edit, :update, :destroy, :setting, :update_email, :update_password]
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
     @logs = @user.logs.page(params[:page]).per(5)
@@ -28,7 +32,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.avatar.attach(params[:user][:avatar])
+    # すでに画像がある場合は、現在の画像をデフォルトでセット
+    @user.avatar.attach(params[:user][:avatar]) if params[:user][:avatar]
     if @user.update(user_update_params)
       flash[:success] = 'アカウントを更新しました。'
       redirect_to user_url(@user)

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   controller :users do
-    resources :users, except: [:index] do
+    resources :users do
       member do
         get :setting
         patch :email_update, :password_update

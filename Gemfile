@@ -26,6 +26,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~>4.11'
   gem 'rubocop'
   gem 'annotate'
+  gem 'faker'
 end
 
 group :development do

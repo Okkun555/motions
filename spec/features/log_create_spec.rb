@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "LogCreates", type: :feature do
   let(:user){ FactoryBot.create(:user) }
 
-  describe 'create_log_system' do
+  describe 'create log system' do
     before do
       visit login_path
       fill_in 'login_email', with: user.email
@@ -12,7 +12,7 @@ RSpec.feature "LogCreates", type: :feature do
       visit new_log_path
     end
 
-    context 'valid data' do
+    context 'accept valid data' do
       it 'should create new log' do
         fill_in 'training_day', with: '2019/05/01'
         fill_in 'training_title', with: '胸・肩'
@@ -24,7 +24,7 @@ RSpec.feature "LogCreates", type: :feature do
       end
     end
 
-    context 'invalid data' do
+    context 'accept invalid data' do
       it 'should not create new log' do
         fill_in 'training_day', with: ''
         fill_in 'training_title', with: ''
@@ -35,5 +35,4 @@ RSpec.feature "LogCreates", type: :feature do
       end
     end
   end
-
 end

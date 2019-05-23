@@ -1,19 +1,27 @@
 <% provide(:title, 'User index') %>
-
 <div id='users-index'>
   <h1>- Motions ユーザー -</h1>
-  <div class='index-page-user'>
-    <% @users.each do |user| %>
-      <div class='user-1ea col-sm-4'>
-        <div class='user-img'>
-          <%= image_tag user.avatar.variant(resize: '80x80'), style: 'border-radius: 50%' if user.avatar.attached? %>
-        </div>
-        <div class='user-information'>
-          <h5 class='user-name'><%= user.name %></h5>
-          <p class='user-profile'><%= user.profile %></p>
-        </div>
-        <%= link_to 'ユーザー詳細', user_path(user), class: 'btn' %>
-      </div>
-    <% end %>
-  </div>
+  <table class="table user-1ea">
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <th>
+            <div class='user-img'>
+              <%= image_tag user.avatar if user.avatar.attached? %>
+            </div>
+          </th>
+          <td class='user-name'><%= user.name %></td>
+          <td class='user-profile'>
+            <% unless user.profile.nil? %>
+              <p><%= user.profile.user_profile %></p>
+            <% else %>
+              <p></p>
+            <% end %>
+          </td>
+          <td><%= link_to '詳細', user_path(user), class: 'btn' %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @users %>
 </div>

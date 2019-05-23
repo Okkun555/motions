@@ -3,6 +3,5 @@ FactoryBot.define do
     name { 'userA' }
     email { 'a@example.com' }
     password { 'password' }
-    profile { 'Hello everyone' }
   end
 end

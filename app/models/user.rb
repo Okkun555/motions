@@ -9,8 +9,9 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-  validates :profile, length: { maximum: 400 }
 
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
   has_many :logs
   has_one_attached :avatar
 end

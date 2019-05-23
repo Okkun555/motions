@@ -17,31 +17,27 @@ RSpec.describe Log, type: :model do
   end
 
   describe 'training_day validation' do
-    context 'present training_day' do
+    context 'training_day presence' do
       let(:training_day){ '' }
-
       it_behaves_like 'should be invalid'
     end
   end
 
   describe 'training_title validatio' do
-    context 'present training_title' do
+    context 'training_title presence' do
       let(:training_title){ '' }
-
       it_behaves_like 'should be invalid'
     end
 
-    context 'too long training_title' do
+    context 'training_title length' do
       let(:training_title){ 'a' * 21 }
-
-      it_behaves_like 'should be invalid' 
+      it_behaves_like 'should be invalid'
     end
   end
 
   describe 'comment validation' do
-    context 'too long comment' do
+    context 'comment length' do
       let(:comment){ 'a' * 401 }
-
       it_behaves_like 'should be invalid'
     end
   end

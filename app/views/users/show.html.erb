@@ -7,7 +7,33 @@
       <%= image_tag @user.avatar if @user.avatar.attached? %>
     </div>
     <p class='user-name'><%= @user.name %></p>
-    <p class='user-profile'><%= @user.profile %></p>
+    <% unless @profile.nil? %>
+      <p class='user-profile'><%= @profile.user_profile %></p>
+      <div class='user-category'>
+        <p>カテゴリー:</p>
+        <% if @user.profile.gim_training %>
+          <p class='category-item'>ジムトレ</p>
+        <% end %>
+        <% if @user.profile.house_training %>
+          <p class='category-item'>家トレ</p>
+        <% end %>
+        <% if @user.profile.weight_training %>
+          <p class='category-item'>ウエイトトレーニング</p>
+        <% end %>
+        <% if @user.profile.bodyweight_training %>
+          <p class='category-item'>自重トレーニング</p>
+        <% end %>
+        <% if @user.profile.diet %>
+          <p class='category-item'>ダイエット</p>
+        <% end %>
+        <% if @user.profile.body_make %>
+          <p class='category-item'>ボディメイク</p>
+        <% end %>
+        <% if @user.profile.power %>
+          <p class='category-item'>パワー</p>
+        <% end %>
+      </div>
+    <% end %>
     <% if @user == current_user %>
       <div class='show-link'>
         <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'show-setting' %>

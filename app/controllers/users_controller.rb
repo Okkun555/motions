@@ -3,12 +3,13 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy, :setting, :update_email, :update_password]
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(25)
   end
 
   def show
     @user = User.find(params[:id])
-    @logs = @user.logs.page(params[:page]).per(5)
+    @profile = @user.profile
+    @logs = @user.logs.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -83,7 +84,7 @@ class UsersController < ApplicationController
       end
 
       def user_update_params
-        params.require(:user).permit(:avatar, :name, :profile)
+        params.require(:user).permit(:avatar, :name, profile_attributes: [:user_profile, :gim_training, :house_training,:weight_training, :bodyweight_training, :diet, :body_make, :power])
       end
 
       def user_email_update_params

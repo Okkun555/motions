@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature "UserEditPasswords", type: :feature do
-  let!(:user){ FactoryBot.create(:user) }
+  let(:user){ FactoryBot.create(:user) }
 
-  describe 'user_password_edit_system' do
+  describe 'user password edit system' do
     before do
       visit login_path
       fill_in 'login_email', with: user.email

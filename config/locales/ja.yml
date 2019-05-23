@@ -16,7 +16,6 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認)
-        profile: プロフィール
         created_at: 登録日時
         update_at: 更新日時
 
@@ -31,3 +30,6 @@ ja:
         reps: 回数
         created_at: 登録日時
         update_at: 更新日時
+
+      profile:
+        user_profile: プロフィール

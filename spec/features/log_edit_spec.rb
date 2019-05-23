@@ -5,7 +5,7 @@ RSpec.feature "LogEdits", type: :feature do
   let(:log){ FactoryBot.create(:log, user: user) }
   let(:menu){ FactoryBot.create(:menu, log: log) }
 
-  describe 'edit_log_system' do
+  describe 'edit log system' do
     before do
       visit login_path
       fill_in 'login_email', with: user.email

@@ -1,5 +1,7 @@
 {
   "name": "traininglog",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "infinite-scroll": "^3.0.6"
+  }
 }

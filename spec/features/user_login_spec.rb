@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "UserLogins", type: :feature do
   let!(:user){ FactoryBot.create(:user) }
 
-  describe 'user_login_system' do
+  describe 'user login system' do
     before do
       visit login_path
     end
@@ -22,19 +22,19 @@ RSpec.feature "UserLogins", type: :feature do
       it 'should not be logged in' do
         fill_in 'login_email', with: ''
         fill_in 'login_password', with: ''
-        expect(page).not_to have_content 'ログインしました。' 
+        expect(page).not_to have_content 'ログインしました。'
       end
     end
   end
 
-  describe 'user_logout_system' do
+  describe 'user logoutsystem' do
     before do
       visit login_path
       fill_in 'login_email', with: user.email
       fill_in 'login_password', with: user.password
       click_button 'ログイン'
     end
-    it 'should logout' do
+    it 'should be logged out' do
       click_on 'ログアウト'
       expect(page).to have_content 'ログアウトしました。'
     end

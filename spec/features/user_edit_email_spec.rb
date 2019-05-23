@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature "UserEditEmails", type: :feature do
-  let!(:user){ FactoryBot.create(:user) }
+  let(:user){ FactoryBot.create(:user) }
 
-  describe 'user_email_edit_system' do
+  describe 'user email edit system' do
     before do
       visit login_path
       fill_in 'login_email', with: user.email

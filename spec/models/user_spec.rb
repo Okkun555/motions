@@ -5,9 +5,7 @@ RSpec.describe User, type: :model do
   let(:email){ 'a@example.com' }
   let(:password){ 'password' }
   let(:password_confirmation){ 'password' }
-  let(:profile){ 'Hello everyone' }
-  let(:user){ User.new(name: name, email: email, password: password, password_confirmation: password_confirmation, profile: profile) }
-
+  let(:user){ User.new(name: name, email: email, password: password, password_confirmation: password_confirmation) }
   let(:user_b){ User.new(name: 'userB', email: 'b@example.com', password: 'password', password_confirmation: 'password') }
 
   shared_examples_for 'should be invalid' do
@@ -19,33 +17,29 @@ RSpec.describe User, type: :model do
   end
 
   describe 'name validations' do
-    context 'present name' do
+    context 'name presence' do
       let(:name){ '' }
-
       it_behaves_like 'should be invalid'
     end
 
-    context 'too long name' do
+    context 'name length' do
       let(:name){ 'a' * 31 }
-
       it_behaves_like 'should be invalid'
     end
   end
 
   describe 'email validations' do
-    context 'present email' do
+    context 'email presence' do
       let(:email){ '' }
-
       it_behaves_like 'should be invalid'
     end
 
-    context 'too long email' do
+    context 'email length' do
       let(:email){ 'a' * 244 + '@example.com' }
-
       it_behaves_like 'should be invalid'
     end
 
-    context 'format email' do
+    context 'email format' do
       context 'accept valide adresses' do
         it 'should create user' do
           valid_addresses = %w[user@example.com USER@foo.COM A_USER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
@@ -67,7 +61,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context 'uniqueness email' do
+    context 'email uniqueness' do
       before do
         user.save
         user_b.email = user.email
@@ -79,23 +73,13 @@ RSpec.describe User, type: :model do
   end
 
   describe 'password validations' do
-    context 'present password' do
+    context 'password presence' do
       let(:password){ '' }
-
       it_behaves_like 'should be invalid'
     end
 
-    context 'too short password' do
+    context 'password length' do
       let(:password){ 'a' * 5 }
-
-      it_behaves_like 'should be invalid'
-    end
-  end
-
-  describe 'profile validations' do
-    context 'too long profile' do
-      let(:profile){ 'a' * 401 }
-
       it_behaves_like 'should be invalid'
     end
   end

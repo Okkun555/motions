@@ -3,32 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // users/index.html.erb
-.index-page-user{
-  display: flex;
-  justify-content: space-between;
-  flex-flow: wrap;
-  .user-1ea{
-    width: 25%;
+#users-index {
+  .user-1ea {
     border: 1px solid #c0c0c0;
-    padding: 20px;
   }
   .user-img {
     margin: 0 auto;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
   }
-  .user-information {
-    margin-top: 20px;
-    height: 40%;
-  }
-  .user-name{
-    font-size: 24px;
+  .user-name {
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: bold;
   }
   .user-profile {
+    font-size: 15px;
     text-align: left;
+  }
+  .btn {
+    width: 150px;
+    padding: 5px 15px;
     font-size: 14px;
   }
 }
+
 // users/show.html.erb
 
 .show-content {
@@ -37,7 +41,7 @@
   align-items: flex-start;
   .left-side {
     width: 30%;
-    .user-name, .user-profile {
+    .user-name, .user-profile, .user-category {
       overflow-wrap: break-word;
       border-bottom: 1px solid #c0c0c0;
       padding-bottom: 20px;
@@ -61,6 +65,19 @@
     .user-profile {
       text-align: left;
       font-size: 15px;
+    }
+    .user-category {
+      text-align: left;
+      font-size: 12px;
+      .category-item {
+        display: inline-block;
+        border: 1px solid #6495ed;
+        border-radius: 30px;
+        background: #6495ed;
+        color: #fff;
+        padding: 2px;
+        margin-right: 3px;
+      }
     }
     .show-link {
       margin-top: 20px;
@@ -86,6 +103,16 @@
       font-weight: bold;
     }
   }
+}
+
+// users/edit.html.erb
+#users-edit .check-label {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+#users-edit .form-check-label {
+  margin-right: 5px;
 }
 
 // users/setting.html.erb

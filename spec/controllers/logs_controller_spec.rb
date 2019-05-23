@@ -4,7 +4,7 @@ RSpec.describe LogsController, type: :controller do
   let(:user){ FactoryBot.create(:user) }
   let(:log){ FactoryBot.create(:log, user: user) }
 
-  context '#new' do
+  context 'logs#new' do
     before do
       log_in_as(user)
       get :new
@@ -14,7 +14,7 @@ RSpec.describe LogsController, type: :controller do
     end
   end
 
-  context '#show' do
+  context 'logs#show' do
     before do
       log_in_as(user)
       get :show, params: { id: log.id }
@@ -24,7 +24,17 @@ RSpec.describe LogsController, type: :controller do
     end
   end
 
-  context '#edit' do
+  context 'logs#index' do
+    before do
+      log_in_as(user)
+      get :index
+    end
+    it 'should get logs_index page' do
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  context 'logs#edit' do
     before do
       log_in_as(user)
       get :edit, params: { id: log.id }

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature "UserEdits", type: :feature do
-  let!(:user){ FactoryBot.create(:user) }
+  let(:user){ FactoryBot.create(:user) }
 
-  describe 'user_edit_system' do
+  describe 'user edit system' do
     before do
       visit login_path
       fill_in 'login_email', with: user.email
@@ -12,7 +12,7 @@ RSpec.feature "UserEdits", type: :feature do
       visit edit_user_path(user)
     end
 
-    context '#update' do
+    context 'user update' do
       context 'accept valid data' do
         it 'should update user' do
           fill_in 'user_name', with: 'userB'
@@ -32,7 +32,7 @@ RSpec.feature "UserEdits", type: :feature do
       end
     end
 
-    context '#destroy' do
+    context 'user delete' do
       before do
         visit user_path(user)
       end

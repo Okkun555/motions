@@ -12,11 +12,7 @@
           </th>
           <td class='user-name'><%= user.name %></td>
           <td class='user-profile'>
-            <% unless user.profile.nil? %>
-              <p><%= user.profile.user_profile %></p>
-            <% else %>
-              <p></p>
-            <% end %>
+            <%= user.profile.user_profile if user.profile %>
           </td>
           <td><%= link_to '詳細', user_path(user), class: 'btn' %>
         </tr>

@@ -33,16 +33,6 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  context 'users#findex' do
-    before do
-      log_in_as(user)
-      get :index
-    end
-    it 'should get users_index page' do
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   context 'users#setting' do
     before do
       log_in_as(user)

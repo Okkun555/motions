@@ -1,14 +1,7 @@
 Rails.application.routes.draw do
   root to:'static_pages#home'
-
-  controller :sessions do
-    get '/login', to: 'sessions#new'
-    post '/login', to: 'sessions#create'
-    delete 'logout', to: 'sessions#destroy'
-  end
-
   controller :users do
-    resources :users do
+    resources :users, except: [:index] do
       member do
         get :setting
         patch :email_update, :password_update
@@ -16,5 +9,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :logs, except: [:destroy]
+
+  controller :sessions do
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+  end
+  resources :logs, except: [:destroy, :index]
 end

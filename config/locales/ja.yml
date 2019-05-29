@@ -33,3 +33,9 @@ ja:
 
       profile:
         user_profile: プロフィール
+
+      body:
+        date: 日付
+        length: 身長
+        weight: 体重
+        fat_percentage: 体脂肪率

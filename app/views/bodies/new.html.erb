@@ -1,0 +1,27 @@
+<% provide(:title, '身体データ記録' ) %>
+
+<div id='bodies-new'>
+  <h1>- 身体データ記録 -</h1>
+  <%= form_with model: @body, local: true do |f| %>
+    <%= render 'shared/errors_messages', object: f.object %>
+    <div class='form-area'>
+      <div class='form-group'>
+        <%= f.label :date, '日付:', class: 'form-label col-md-3' %>
+        <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), id: 'date' %>
+      </div>
+      <div class='form-group'>
+        <%= f.label :length, '身長(cm):', class: 'form-label col-md-3' %>
+        <%= f.text_field :length, class: 'body-form', id: 'user_length' %>
+      </div>
+      <div class='form-group'>
+        <%= f.label :weight, '体重(kg):', class: 'form-label col-md-3' %>
+        <%= f.text_field :weight, class: 'body-form', id: 'user_weight' %>
+      </div>
+      <div class='form-group'>
+        <%= f.label :fat_percentage, '体脂肪率(%):', class: 'form-label col-md-3' %>
+        <%= f.text_field :fat_percentage, class: 'body-form', id: 'user_fat_percentage' %>
+      </div>
+      <%= f.submit '記録', class: 'btn' %>
+    </div>
+  <% end %>
+</div>

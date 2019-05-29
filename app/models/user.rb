@@ -13,5 +13,6 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
   has_many :logs
+  has_many :bodies
   has_one_attached :avatar
 end

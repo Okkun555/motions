@@ -24,16 +24,6 @@ RSpec.describe LogsController, type: :controller do
     end
   end
 
-  context 'logs#index' do
-    before do
-      log_in_as(user)
-      get :index
-    end
-    it 'should get logs_index page' do
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   context 'logs#edit' do
     before do
       log_in_as(user)

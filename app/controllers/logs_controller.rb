@@ -2,9 +2,6 @@ class LogsController < ApplicationController
   before_action :login_require
   before_action :correct_user_logs, only: [:edit, :update]
 
-  def index
-  end
-
   def show
     @log = Log.find(params[:id])
     @menus = @log.menus

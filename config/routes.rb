@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   end
 
   controller :bodies do
-    resources :bodies, only: [:index, :new, :create]
+    resources :bodies, only: [:index, :new, :create] do
+      member do
+        get :weight_show, :fat_percentage_show
+      end
+    end
   end
 end

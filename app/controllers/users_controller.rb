@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy, :setting, :update_email, :update_password]
 
   def show
-    @user = User.find(params[:id])
-    @profile = @user.profile
-    @logs = @user.logs.order(created_at: :desc).page(params[:page]).per(5)
+    @user     = User.find(params[:id])
+    @profile  = @user.profile
+    @logs     = @user.logs.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_create_params)
     if @user.save
+      # ログインさせる
       session[:user_id] = @user.id
       flash[:success] = 'アカウントを作成しました。'
       redirect_to user_url(@user)
@@ -62,6 +63,7 @@ class UsersController < ApplicationController
 
   def password_update
     @user = User.find(params[:id])
+    # 現在のアドレスが一致しているのか照合
     if @user && @user.authenticate(params[:user][:old_password])
       if @user.update(user_password_update_params)
         flash[:success] = 'パスワードを更新しました。'
@@ -76,7 +78,7 @@ class UsersController < ApplicationController
 
   private
       def user_create_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name,:email, :password, :password_confirmation)
       end
 
       def user_update_params

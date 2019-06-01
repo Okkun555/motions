@@ -1,9 +1,19 @@
 class BodiesController < ApplicationController
   before_action :login_require
-  # before_action :correct_user_bodies
 
   def index
     @bodies = current_user.bodies
+  end
+
+  def weight_show
+    #配列をJavascript用に変換
+    @bodies_date    = current_user.bodies.pluck(:date).last(7).to_json.html_safe
+    @bodies_weight  = current_user.bodies.pluck(:weight).last(7).to_json.html_safe
+  end
+
+  def fat_percentage_show
+    @bodies_date    = current_user.bodies.pluck(:date).last(7).to_json.html_safe
+    @bodies_fat_per = current_user.bodies.pluck(:fat_percentage).to_json.html_safe
   end
 
   def new
@@ -24,12 +34,4 @@ class BodiesController < ApplicationController
       def body_params
         params.require(:body).permit(:date, :length, :weight, :fat_percentage)
       end
-
-      # def correct_user_bodies
-      #   @body = current_user.bodies.find_by(id: params[:id])
-      #   if @body.nil?
-      #     flash[:danger] = '更新権限がありません'
-      #     redirect_to root_path
-      #   end
-      # end
 end

@@ -2,6 +2,8 @@
   "name": "traininglog",
   "private": true,
   "dependencies": {
-    "infinite-scroll": "^3.0.6"
+    "chart.js": "^2.8.0",
+    "infinite-scroll": "^3.0.6",
+    "vue-chartjs": "^3.4.2"
   }
 }

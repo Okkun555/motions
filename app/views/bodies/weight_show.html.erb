@@ -1,0 +1,26 @@
+<% provide(:title, '体重グラフ') %>
+
+<div id='bodies_weight_show'>
+  <h1>- 体重データ -</h1>
+  <%= link_to '一覧', bodies_path, class: 'return-index' %>
+  <canvas id='linechart' width='800' height='400'></canvas>
+  <script>
+    var ctx = document.getElementById('linechart');
+    var date_data = <%= @bodies_date %>
+    var weight_data = <%= @bodies_weight %>
+    var linechart = new Chart(ctx, {
+      type: 'line',
+      data: {
+      labels: date_data,
+      datasets: [
+        {
+          label: '体重',
+          borderColor: 'red',
+          fill: false,
+          data: weight_data,
+        },
+      ]
+    },
+   });
+  </script>
+</div>

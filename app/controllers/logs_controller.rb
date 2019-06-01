@@ -3,9 +3,9 @@ class LogsController < ApplicationController
   before_action :correct_user_logs, only: [:edit, :update]
 
   def show
-    @log = Log.find(params[:id])
-    @menus = @log.menus
-    @user = @log.user
+    @log    = Log.find(params[:id])
+    @menus  = @log.menus
+    @user   = @log.user
   end
 
   def new

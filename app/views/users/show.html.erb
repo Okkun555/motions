@@ -36,6 +36,7 @@
     <% end %>
     <% if @user == current_user %>
       <div class='show-link'>
+        <%= link_to '身体記録', bodies_path, class: 'show-setting' %>
         <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'show-setting' %>
         <%= link_to '設定', setting_user_path(@user), class: 'show-setting' %>
         <%= link_to 'ユーザー削除', @user, method: :delete, data: { confirm: 'アカウントを削除します。よろしいですか？' }, class: 'show-setting' %>

@@ -2,4 +2,30 @@
 
 <div id='bodies_index'>
   <h1>- 個人データ -</h1>
+  <div class='index_link_area'>
+    <%= link_to '体重グラフ', weight_show_body_path(current_user), class: 'btn' %>
+    <%= link_to '体脂肪グラフ', fat_percentage_show_body_path(current_user), class: 'btn' %>
+  </div>
+  <div class='table-area'>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>日付</th>
+          <th>体重</th>
+          <th>体脂肪率</th>
+          <th>BMI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bodies.each do |body| %>
+        <tr>
+          <td><%= body.date %></td>
+          <td><%= body.weight %> kg</td>
+          <td><%= body.fat_percentage %> %</td>
+          <td><%= body.calculate_bmi %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

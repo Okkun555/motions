@@ -1,0 +1,24 @@
+<% provide(:title, '体脂肪率グラフ') %>
+
+<div id='bodies_fat_per_show'>
+  <h1>- 体脂肪データ -</h1>
+  <%= link_to '一覧', bodies_path, class: 'return-index' %>
+  <canvas id='linechart' width='800' height='400'></canvas>
+  <script>
+    var ctx = document.getElementById('linechart');
+    var linechart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: <%= @bodies_date %>,
+        datasets: [
+          {
+            label: '体脂肪',
+            borderColor: 'blue',
+            fill: false,
+            data: <%= @bodies_fat_per %>,
+          },
+        ]
+      },
+    });
+  </script>
+</div>

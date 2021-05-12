@@ -2,7 +2,7 @@
   "name": "traininglog",
   "private": true,
   "dependencies": {
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "infinite-scroll": "^3.0.6",
     "vue-chartjs": "^3.4.2"
   }
